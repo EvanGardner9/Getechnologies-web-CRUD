@@ -1,0 +1,39 @@
+<br>
+<div class="card mb-3 py-2 bg-light " >
+    
+    <div class="card-header bg-light "><h4 class="card-title text-dark">Listado de Personas</h4></div>
+    <div class="card-body text-primary bg-light">
+        <div class="my-1 text-right py-3">
+            <button class="btn btn-rounded btn-primary text-white" type="button" [routerLink]="['/personas/form']">Crear Persona</button>
+        </div>
+  
+
+        <div *ngIf="personas?.length==0" class="alert alert-info">
+            No hay registro en la base de datos!
+
+        </div>
+        <table class="table table-bordered table-striped" *ngIf="personas?.length>0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Identificacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of personas">
+                    <td>{{persona.id}}</td>
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.apellidoPaterno}}</td>
+                    <td>{{persona.apellidoMaterno}}</td>
+                    <td>{{persona.identificacion}}</td>
+                    <button class="btn btn-rounded btn-primary bg-primary text-white" type="button" [routerLink]="['/personas/form/', persona.id]">Editar</button>
+                    <button class="btn btn-rounded btn-danger bg-danger text-white" type="button" name = 'eliminar' (click)='delete(persona)' >Eliminar</button>
+                
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

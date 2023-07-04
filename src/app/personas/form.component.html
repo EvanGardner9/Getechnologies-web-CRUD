@@ -1,0 +1,61 @@
+
+<div class="container col-lg-12">
+    <div class="card bg-light text-dark my-4 py-4 col-lg-12 text-left" >
+        <div class="card-header bg-light"><h4>{{titulo}}</h4></div>
+        <div class="card-body">
+          
+          
+            <form>
+                <div class="form-group row my-2">
+                    <label for="nombre" class="col-form-label col-sm-3 text-center">Nombre</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="persona.nombre" name="nombre">
+                    </div>
+                </div>
+    
+                    <div class="form-group row  my-2">
+                        <label for="apellidoPaterno" class="col-form-label col-sm-3 text-center">Apellido Paterno</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" [(ngModel)]="persona.apellidoPaterno"
+                                name="apellidoPaterno">
+                        </div>
+                    </div>
+                    <div class="form-group row  my-2">
+                        <label for="apellidoMaterno" class="col-form-label col-sm-3 text-center">Apellido Materno</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" [(ngModel)]="persona.apellidoMaterno"
+                                name="apellidoMaterno">
+                        </div>
+                    </div>
+    
+                        <div class="form-group row  my-2">
+                            <label for="identificacion" class="col-form-label col-sm-3 text-center">Identificacion</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" [(ngModel)]="persona.identificacion"
+                                    name="identificacion">
+                            </div>
+                        </div>
+    
+                        <br>
+                            <div class="form-group row text-center">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success" role="button" (click)="create()" *ngIf="!persona.id else elseBlock">Crear</button>
+                                    
+                                    <ng-template #elseBlock>
+                                        <button class="btn btn-success" role="button" (click)="update()" >Editar</button>
+                                    </ng-template>
+                                    
+                                </div>
+                                
+                            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-group row text-left">
+    <div class="col-sm-12">
+        <button class="btn btn-secondary btn-sm" routerLink="/personas" role="button">Atras</button>
+    </div>
+</div>
